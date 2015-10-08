@@ -1,0 +1,80 @@
+.navbar-static-top {
+  margin-bottom:20px;
+}
+
+i {
+  font-size:16px;
+}
+
+.nav > li > a {
+  color:#787878;
+}
+  
+footer {
+  margin-top:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  background-color:#efefef;
+}
+
+/* count indicator near icons */
+.nav>li .count {
+  position: absolute;
+  bottom: 12px;
+  right: 6px;
+  font-size: 9px;
+  background: rgba(51,200,51,0.55);
+  color: rgba(255,255,255,0.9);
+  line-height: 1em;
+  padding: 2px 4px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* indent 2nd level */
+.list-unstyled li > ul > li {
+   margin-left:10px;
+   padding:8px;
+}
+.edit{
+   background: transparent url("images/icon_edit.png") center center no-repeat;
+   padding: 2px 8px 2px 8px;
+   color: threedface;
+   text-decoration: none;
+}
+
+.delete{
+   background: transparent url("images/icon_delete.png") center center no-repeat;
+   padding: 2px 8px 2px 8px;
+   color: threedface;
+   text-decoration: none;
+}
+
+.add{
+   background: transparent url("images/Doc-Add.png") center center no-repeat;
+   padding: 2px 8px 2px 8px;
+   color: threedface;
+   text-decoration: none;
+}
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+    }
+    .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    }

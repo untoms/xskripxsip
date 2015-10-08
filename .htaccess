@@ -1,0 +1,28 @@
+RewriteEngine on
+
+
+
+RewriteRule ^pengajuan_$ modul/mod_skripsi/aksi_skripsi.php [L]
+
+
+RewriteRule ^detail_$ modul/mod_pembimbing/aksi_pembimbing.php [L]
+
+
+RewriteRule ^users_$ modul/mod_users/aksi_users.php [L]
+
+
+RewriteRule ^upload_$ modul/mod_upload/aksi_upload.php [L]
+
+
+RewriteRule ^pengajuan$ media.php?module=skripsi [L]
+
+
+RewriteRule ^pembimbing$ media.php?module=pembimbing [L]
+
+
+RewriteRule ^users$ media.php?module=user [L]
+
+
+RewriteRule home$ media.php?module=home [L]
+
+
