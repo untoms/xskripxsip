@@ -213,7 +213,6 @@ if ($module == 'skripsi' AND $act == 'select') {
     mysql_close();
 } else if ($module == 'skripsi' AND $act == 'load') {
     $cek = 1;
-    $url = "modul/modul_disposisi/aksi_pesan.php";
     $data = array();
     $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;

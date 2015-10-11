@@ -100,9 +100,9 @@
 									 kode,nik) 
 							   VALUES('$_POST[username]',
 									'$pass',
-									'$_POST[nama_lengkap]',
+									'$_POST[nama]',
 									'$_POST[email]',
-									'$_POST[no_telp]',
+									'$_POST[telp]',
 									'$_POST[status]',
 									'0','$_POST[nik]')");
 
@@ -127,9 +127,9 @@
 
 		if (empty($_POST['password'])) {
 			mysql_query("UPDATE users SET 
-										nama_lengkap   	= '$_POST[nama_lengkap]',
+										nama_lengkap   	= '$_POST[nama]',
 										email          	= '$_POST[email]',  
-										no_telp        	= '$_POST[no_telp]',
+										no_telp        	= '$_POST[telp]',
 										nik        		= '$_POST[nik]'
 									WHERE  
 											username       = '$_POST[username]'");
@@ -137,11 +137,7 @@
 		// Apabila password diubah
 		else {
 			$pass = md5(md5($_POST['password']));
-			mysql_query("UPDATE users SET  password        = '$pass',
-										   nama_lengkap    = '$_POST[nama_lengkap]',
-										   email           = '$_POST[email]',   
-										   no_telp        = '$_POST[no_telp]',
-										   nik        = '$_POST[nik]'
+			mysql_query("UPDATE users SET  password        = '$pass'
 								   WHERE username        = '$_POST[username]'");
 		}
 		if (mysql_affected_rows() > 0) {
@@ -165,10 +161,10 @@
 		if (isset($edit)) {
 			$users = array(
 				"username" => $r['username'],
-				"nama_lengkap" => $r['nama_lengkap'],
+				"nama" => $r['nama_lengkap'],
 				"email" => $r['email'],
-				"enik" => $r['nik'],
-				"no_telp" => $r['no_telp']
+				"nik" => $r['nik'],
+				"telp" => $r['no_telp']
 			);
 		}
 
@@ -181,13 +177,16 @@
 		$sortby = isset($_POST['sortby']) ? trim($_POST['sortby']) : '';
 		$data_cari = isset($_POST['data']) ? trim($_POST['data']) : '';
 		$offset = ($page - 1) * $rows;
-		$usn = ($_POST['leveluser'] == "admin") ? "" : ((isset($_POST['cari'])) ? "AND username = '" . $_POST['namauser'] . "'" : "WHERE username = '" . $_POST['namauser'] . "'");
+		$usn = ($_POST['leveluser'] == "admin") ? "" : ((isset($_POST['cari'])) ? "AND username = '" . $_POST['username'] . "'" : "WHERE username = '" . $_POST['username'] . "'");
 		$where = isset($_POST['cari']) ? "WHERE " . $sortby . " LIKE '%" . $data_cari . "%' " . $usn . "" : $usn;
 		$tampil = mysql_query("SELECT * FROM users " . $where . " ORDER BY username DESC LIMIT " . $offset . "," . $rows);
 		$hitung = mysql_query("SELECT * FROM users ");
 		while ($r = mysql_fetch_array($tampil)) {
-			$data['rows'][] = array("username" => $r['username'], "nama" => $r['nama_lengkap'],
-				"level" => $r['level'],
+			$data['rows'][] = array(
+				"username" => $r['username'], 
+				"nama" => $r['nama_lengkap'],
+				"leveluser" => $r['level'],
+				"email" => $r['email'],
 				"telp" => $r['no_telp'],
 				"blokir" => $r['blokir']);
 		}

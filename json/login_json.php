@@ -12,8 +12,8 @@
 
 	if ($ketemu > 0){
 
-		$response["code"]			 = "0";
-		$response["message"]		 = "LOGIN SUKSES!";
+		$response["CODE"]			 = "0";
+		$response["MESSAGE"]		 = "LOGIN SUKSES!";
 		$response['username']  	   = $r['username'];
 		$response['nama_lengkap']	= $r['nama_lengkap'];
 		$response['password']  	   = $r['password'];
@@ -24,8 +24,8 @@
 	}
 	else{
 	 
-		$response["code"] = "1";
-		$response["message"] = "LOGIN GAGAL!\nUsername atau Password Anda tidak benar.\n
+		$response["CODE"] = "1";
+		$response["MESSAGE"] = "LOGIN GAGAL!\nUsername atau Password Anda tidak benar.\n
 			Atau account Anda sedang diblokir.";
 		echo json_encode($response);
 	}
