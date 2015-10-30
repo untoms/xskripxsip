@@ -206,7 +206,7 @@ if ($module == 'skripsi' AND $act == 'select') {
             throw new exception($msg);
         }
     } catch (Exception $e) {
-        $data = array("CODE" => "0", "MESSAGE" => $msg);
+        $data = array("CODE" => "1", "MESSAGE" => $msg);
         mysql_query("ROLLBACK;");
     }
     echo json_encode($data);
